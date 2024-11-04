@@ -8,13 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.example.chatmessenger.MainActivity
 import com.example.chatmessenger.R
 import com.example.chatmessenger.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-
 
 
 class SignInActivity : AppCompatActivity() {
@@ -26,17 +28,23 @@ class SignInActivity : AppCompatActivity() {
     lateinit private var pds: ProgressDialog
 
 
-    lateinit var binding : ActivitySignInBinding
+    lateinit var binding: ActivitySignInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
 
+        enableEdgeToEdge()
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.sign_in_layout)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         fbauth = FirebaseAuth.getInstance()
 
 
-        if (fbauth.currentUser!=null){
+        if (fbauth.currentUser != null) {
 
 
             startActivity(Intent(this, MainActivity::class.java))
@@ -57,14 +65,13 @@ class SignInActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
 
 
-
             email = binding.loginetemail.text.toString()
             password = binding.loginetpassword.text.toString()
 
 
 
 
-            if (binding.loginetemail.text.isEmpty()){
+            if (binding.loginetemail.text.isEmpty()) {
 
                 Toast.makeText(this, "Enter Email", Toast.LENGTH_SHORT).show()
 
@@ -72,7 +79,7 @@ class SignInActivity : AppCompatActivity() {
             }
 
 
-            if (binding.loginetpassword.text.isEmpty()){
+            if (binding.loginetpassword.text.isEmpty()) {
 
                 Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show()
 
@@ -80,23 +87,16 @@ class SignInActivity : AppCompatActivity() {
             }
 
 
-            if (binding.loginetemail.text.isNotEmpty() && binding.loginetpassword.text.isNotEmpty()){
+            if (binding.loginetemail.text.isNotEmpty() && binding.loginetpassword.text.isNotEmpty()) {
 
 
                 signIn(password, email)
 
 
-
             }
 
 
-
-
-
-
-
         }
-
 
 
     }
@@ -108,7 +108,7 @@ class SignInActivity : AppCompatActivity() {
         fbauth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
 
 
-            if (it.isSuccessful){
+            if (it.isSuccessful) {
 
                 pds.dismiss()
                 startActivity(Intent(this, MainActivity::class.java))
@@ -123,19 +123,20 @@ class SignInActivity : AppCompatActivity() {
             }
 
 
-        }.addOnFailureListener {exception->
+        }.addOnFailureListener { exception ->
 
 
-            when (exception){
+            when (exception) {
 
-                is FirebaseAuthInvalidCredentialsException->{
+                is FirebaseAuthInvalidCredentialsException -> {
 
-                    Toast.makeText(applicationContext, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Invalid Credentials", Toast.LENGTH_SHORT)
+                        .show()
 
 
                 }
 
-                else-> {
+                else -> {
 
                     // other exceptions
                     Toast.makeText(applicationContext, "Auth Failed", Toast.LENGTH_SHORT).show()
@@ -144,11 +145,7 @@ class SignInActivity : AppCompatActivity() {
                 }
 
 
-
             }
-
-
-
 
 
         }

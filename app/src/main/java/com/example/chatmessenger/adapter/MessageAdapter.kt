@@ -1,7 +1,6 @@
 package com.example.chatmessenger.adapter
 
-import android.annotation.SuppressLint
-import android.view.Gravity
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatmessenger.R
 import com.example.chatmessenger.Utils
-import com.example.chatmessenger.Utils.Companion.MESSAGE_LEFT
-import com.example.chatmessenger.Utils.Companion.MESSAGE_RIGHT
 import com.example.chatmessenger.modal.Messages
-
-
-import androidx.recyclerview.widget.DiffUtil
 
 class MessageAdapter : RecyclerView.Adapter<MessageHolder>() {
 
