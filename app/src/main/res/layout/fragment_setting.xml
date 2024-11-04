@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -62,6 +61,7 @@
                 android:fontFamily="@font/nunito_bold"
                 android:gravity="start"
                 android:text="Update Your Profile"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="@dimen/_13ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_30sdp"
-                android:layout_marginVertical="@dimen/_5sdp">
+                android:layout_marginVertical="@dimen/_5sdp"
+
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?attr/colorOnSurface"
+
+                app:boxCornerRadiusBottomEnd="@dimen/_20sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_20sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_20sdp"
+                app:boxCornerRadiusTopStart="@dimen/_20sdp">
 
                 <EditText
                     android:id="@+id/settingUpdateName"
@@ -90,15 +98,17 @@
 
             <Button
                 android:id="@+id/settingUpdateButton"
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_gravity="center"
-                android:layout_marginVertical="@dimen/_5sdp"
                 android:layout_marginHorizontal="@dimen/_30sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:backgroundTint="#40000000"
                 android:fontFamily="@font/nunito_bold"
                 android:text="Update"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp" />
-
 
 
         </LinearLayout>

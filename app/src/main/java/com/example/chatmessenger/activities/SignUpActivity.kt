@@ -120,7 +120,7 @@ class SignUpActivity : AppCompatActivity() {
             val user = auth.currentUser
 
             val dataHashMap = hashMapOf("userid" to user!!.uid!!, "username" to name, "useremail" to email, "status" to "default",
-            "imageUrl" to "https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png")
+            "imageUrl" to "https://imgcdn.stablediffusionweb.com/2024/10/4/5346136e-8b5b-4d05-867f-630ee16d43f3.jpg")
 
 
 

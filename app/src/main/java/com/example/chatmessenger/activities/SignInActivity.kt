@@ -19,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 
 
-
 class SignInActivity : AppCompatActivity() {
 
     lateinit var name: String
@@ -29,7 +28,7 @@ class SignInActivity : AppCompatActivity() {
     lateinit private var pds: ProgressDialog
 
 
-    lateinit var binding : ActivitySignInBinding
+    lateinit var binding: ActivitySignInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +44,7 @@ class SignInActivity : AppCompatActivity() {
         fbauth = FirebaseAuth.getInstance()
 
 
-        if (fbauth.currentUser!=null){
+        if (fbauth.currentUser != null) {
 
 
             startActivity(Intent(this, MainActivity::class.java))
@@ -66,14 +65,13 @@ class SignInActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
 
 
-
             email = binding.loginetemail.text.toString()
             password = binding.loginetpassword.text.toString()
 
 
 
 
-            if (binding.loginetemail.text.isEmpty()){
+            if (binding.loginetemail.text.isEmpty()) {
 
                 Toast.makeText(this, "Enter Email", Toast.LENGTH_SHORT).show()
 
@@ -81,7 +79,7 @@ class SignInActivity : AppCompatActivity() {
             }
 
 
-            if (binding.loginetpassword.text.isEmpty()){
+            if (binding.loginetpassword.text.isEmpty()) {
 
                 Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show()
 
@@ -89,23 +87,16 @@ class SignInActivity : AppCompatActivity() {
             }
 
 
-            if (binding.loginetemail.text.isNotEmpty() && binding.loginetpassword.text.isNotEmpty()){
+            if (binding.loginetemail.text.isNotEmpty() && binding.loginetpassword.text.isNotEmpty()) {
 
 
                 signIn(password, email)
 
 
-
             }
 
 
-
-
-
-
-
         }
-
 
 
     }
@@ -117,7 +108,7 @@ class SignInActivity : AppCompatActivity() {
         fbauth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
 
 
-            if (it.isSuccessful){
+            if (it.isSuccessful) {
 
                 pds.dismiss()
                 startActivity(Intent(this, MainActivity::class.java))
@@ -132,19 +123,20 @@ class SignInActivity : AppCompatActivity() {
             }
 
 
-        }.addOnFailureListener {exception->
+        }.addOnFailureListener { exception ->
 
 
-            when (exception){
+            when (exception) {
 
-                is FirebaseAuthInvalidCredentialsException->{
+                is FirebaseAuthInvalidCredentialsException -> {
 
-                    Toast.makeText(applicationContext, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Invalid Credentials", Toast.LENGTH_SHORT)
+                        .show()
 
 
                 }
 
-                else-> {
+                else -> {
 
                     // other exceptions
                     Toast.makeText(applicationContext, "Auth Failed", Toast.LENGTH_SHORT).show()
@@ -153,11 +145,7 @@ class SignInActivity : AppCompatActivity() {
                 }
 
 
-
             }
-
-
-
 
 
         }

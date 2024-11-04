@@ -33,15 +33,14 @@
                 android:layout_height="45dp"
                 android:layout_gravity="end"
                 android:layout_marginRight="10dp"
-                app:civ_border_color="#FE2C54"
-                app:civ_border_width="1dp" />
+              />
 
             <ImageView
                 android:id="@+id/logOut"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="start"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:src="@drawable/logout" />
 
 
@@ -51,7 +50,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvUsers"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_80sdp"
             android:background="@color/colorSurface"
             android:paddingHorizontal="@dimen/_10sdp"
             android:orientation="horizontal" />
