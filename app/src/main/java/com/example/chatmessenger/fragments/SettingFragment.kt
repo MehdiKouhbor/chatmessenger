@@ -131,7 +131,7 @@ class SettingFragment : Fragment() {
 
 
 
-        Glide.with(requireContext()).load(imageUrl).placeholder(R.drawable.person).dontAnimate()
+        Glide.with(requireContext()).load(imageUrl).placeholder(R.drawable.bot).dontAnimate()
             .into(binding.settingUpdateImage)
 
 

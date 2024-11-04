@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -9,6 +8,7 @@
         android:id="@+id/sign_in_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorSurface"
         android:fillViewport="true">
 
         <LinearLayout
@@ -25,6 +25,7 @@
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:fontFamily="@font/nunito_bold"
                 android:text="Login"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +35,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_30sdp"
-                android:layout_marginVertical="@dimen/_5sdp">
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?attr/colorOnSurface">
 
                 <EditText
                     android:id="@+id/loginetemail"
@@ -45,7 +48,9 @@
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
                     android:maxLength="25"
-                    android:paddingHorizontal="@dimen/_10sdp" />
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textColorHint="?attr/colorOnSurface" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +59,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_30sdp"
-                android:layout_marginVertical="@dimen/_5sdp">
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?attr/colorOnSurface">
 
                 <EditText
                     android:id="@+id/loginetpassword"
@@ -65,7 +72,9 @@
                     android:importantForAutofill="no"
                     android:inputType="textPassword"
                     android:maxLength="25"
-                    android:paddingHorizontal="@dimen/_10sdp" />
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textColorHint="?attr/colorOnSurface" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -76,6 +85,7 @@
                 android:layout_marginHorizontal="@dimen/_30sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
                 android:text="Login"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp" />
 
             <TextView
@@ -85,7 +95,7 @@
                 android:layout_marginVertical="@dimen/_5sdp"
                 android:fontFamily="@font/nunito_bold"
                 android:text="Create a new account"
-                android:textColor="@color/black" />
+                android:textColor="?attr/colorOnSurface" />
 
 
         </LinearLayout>

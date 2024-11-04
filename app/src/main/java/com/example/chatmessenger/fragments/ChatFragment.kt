@@ -70,7 +70,7 @@ class ChatFragment : Fragment() {
 
 
 
-        Glide.with(view.getContext()).load(args.users.imageUrl!!).placeholder(R.drawable.person).dontAnimate().into(circleImageView);
+        Glide.with(view.getContext()).load(args.users.imageUrl!!).placeholder(R.drawable.bot).dontAnimate().into(circleImageView);
         textViewName.setText(args.users.username)
         textViewStatus.setText(args.users.status)
 

@@ -65,7 +65,7 @@ class ChatfromHome : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
 
-        Glide.with(view.getContext()).load(args.recentchats.friendsimage!!).placeholder(R.drawable.person).dontAnimate().into(circleImageView);
+        Glide.with(view.getContext()).load(args.recentchats.friendsimage!!).placeholder(R.drawable.bot).dontAnimate().into(circleImageView);
         textViewName.setText(args.recentchats.name)
         //textViewStatus.setText(args.users.status)
 

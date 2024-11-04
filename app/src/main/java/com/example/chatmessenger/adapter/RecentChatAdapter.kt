@@ -1,30 +1,20 @@
 package com.example.chatmessenger.adapter
 
-import android.opengl.Visibility
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.chatmessenger.MyApplication
 import com.example.chatmessenger.R
-import com.example.chatmessenger.SharedPrefs
-import com.example.chatmessenger.Utils
-import com.example.chatmessenger.modal.Messages
 import com.example.chatmessenger.modal.RecentChats
-import com.example.chatmessenger.modal.Users
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import de.hdodenhof.circleimageview.CircleImageView
 
 class RecentChatAdapter : RecyclerView.Adapter<MyChatListHolder>() {
 
-    var listOfChats = listOf<RecentChats>()
+    private var listOfChats = listOf<RecentChats>()
     private var listener: onChatClicked? = null
-    var chatShitModal = RecentChats()
+    private var chatShitModal = RecentChats()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyChatListHolder {
@@ -63,11 +53,11 @@ class RecentChatAdapter : RecyclerView.Adapter<MyChatListHolder>() {
         val themessage = chatlist.message!!.split(" ").take(4).joinToString(" ")
         val makelastmessage = "${chatlist.person}: ${themessage} "
 
-        holder.lastMessage.setText(makelastmessage)
+        holder.lastMessage.text = makelastmessage
 
         Glide.with(holder.itemView.context).load(chatlist.friendsimage).into(holder.imageView)
 
-        holder.timeView.setText(chatlist.time!!.substring(0, 5))
+        holder.timeView.text = chatlist.time!!.substring(0, 5)
 
         holder.itemView.setOnClickListener {
             listener?.getOnChatCLickedItem(position, chatlist)
